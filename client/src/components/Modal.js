@@ -81,16 +81,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
             onChange={handleChange}
           />
           <br />
-          <label for="range">Drag to select your current progress</label>
-          <input
-            type="range"
-            id="range"
-            min="0"
-            max="100"
-            name="progress"
-            value={data.progress}
-            onChange={handleChange}
-          />
+
           <input className={mode} type="submit" onClick={editMode ? editData : postData} />
         </form>
       </div>

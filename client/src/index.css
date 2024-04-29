@@ -1,20 +1,8 @@
-body {
-  margin: 0;
-  padding: 0;
-  background-color: rgb(223, 241, 250);
-  display: flex;
-  justify-content: center;
-  font-family: "Trebuchet MS", Arial, sans-serif;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-.app {
-  background-color: rgb(255, 255, 255);
-  box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08) 0 0 0 1px;
-  border-radius: 10px;
-  padding: 10px;
-  width: 800px;
-  margin-top: 50px;
-}
+
 
 .button-container .info-container {
   display: flex;

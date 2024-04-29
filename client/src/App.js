@@ -3,6 +3,12 @@ import { useEffect, useState } from "react";
 import ListItem from "./components/ListItem";
 import Auth from "./components/Auth";
 import { useCookies } from "react-cookie";
+import MessageList from "./components/message/MessageList";
+import MessageCard from "./components/message/message-card";
+import Nav from "./components/Nav";
+import Note from "./components/Note";
+
+
 
 const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null);
@@ -34,18 +40,25 @@ const App = () => {
     (a, b) => new Date(a.date) - new Date(b.date)
   );
 
+  const userMessages = 'hi'
+
   return (
-    <div className="app">
-      {!authToken && <Auth />}
-      {authToken &&
-        <> <ListHeader listName={"🌊 Holiday tick list "} getData={getData} />
-          <p className="user-email">Welcome back {userEmail}</p>
-          {sortedTasks?.map((task) => (
-            <ListItem key={task.id} task={task} getData={getData} />
-          ))}
-        </>
-      }
-      <p className="copyright">© Creative Coding LLC</p>
+    <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <Nav />
+
+      <div className="app">
+        {!authToken && <Auth />}
+        {authToken &&
+          <> <ListHeader listName={"🌊 Holiday tick list "} getData={getData} />
+            <p className="user-email">Welcome back {userEmail}</p>
+            {sortedTasks?.map((task) => (
+              <ListItem key={task.id} task={task} getData={getData} />
+            ))}
+          </>
+        }
+        <p className="copyright">© Creative Coding LLC</p>
+      </div>
+      <Note />
     </div>
   );
 };
